@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+<!--  <display-name>Spring JavaConfig Sample</display-name>-->
+<!--  &lt;!&ndash;-->
+<!--  ContextLoaderListener 실행 시, context-param에 있는 부분을 참고하여 실행한다!-->
+<!--  1. AnnotationConfigWebApplicationContext를 이용한다-->
+<!--  2. ApplicationConfig를 설정 파일로 사용한다-->
+<!--  &ndash;&gt;-->
+<!--  <context-param>-->
+<!--    <param-name>contextClass</param-name>-->
+<!--    <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext-->
+<!--    </param-value>-->
+<!--  </context-param>-->
+<!--  <context-param>-->
+<!--    <param-name>contextConfigLocation</param-name>-->
+<!--    <param-value>kr.or.connect.config.ApplicationConfig-->
+<!--    </param-value>-->
+<!--  </context-param>-->
+<!--  &lt;!&ndash;ContextLoaderListener : 서버가 실행될 떄, 이 클래스를 읽어서 수행한다&ndash;&gt;-->
+<!--  <listener>-->
+<!--    <listener-class>org.springframework.web.context.ContextLoaderListener-->
+<!--    </listener-class>-->
+<!--  </listener>-->
+
+<!--  &lt;!&ndash;DispatcherServlet을 FrontController로 설정(url-mapping을 '/'로 지정함)하고, 어떤 설정 파일을 읽어들일지 정하는 부분 &ndash;&gt;-->
+<!--  &lt;!&ndash;-->
+<!--  DispatcherServlet 실행 시,-->
+<!--  1. AnnotationConfigWebApplicationContext를 사용하고-->
+<!--  2. WebMvcContextConfiguration 설정 파일을 읽어들인다-->
+<!--  &ndash;&gt;-->
+<!--  <servlet>-->
+<!--    <servlet-name>mvc</servlet-name>-->
+<!--    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
+<!--    <init-param>-->
+<!--      &lt;!&ndash; contextLoader가 해당 위치의 설정 파일을 읽어, 해당 파일을 dispatcher servlet으로 만든다. &ndash;&gt;-->
+<!--      <param-name>contextClass</param-name>-->
+<!--      <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext-->
+<!--      </param-value>-->
+<!--    </init-param>-->
+<!--    <init-param>-->
+<!--      <param-name>contextConfigLocation</param-name>-->
+<!--      <param-value>kr.or.connect.config.WebMvcContextConfiguration-->
+<!--      </param-value>-->
+<!--    </init-param>-->
+<!--    <load-on-startup>1</load-on-startup>-->
+<!--  </servlet>-->
+<!--  <servlet-mapping>-->
+<!--    <servlet-name>mvc</servlet-name>-->
+<!--    <url-pattern>/</url-pattern>-->
+<!--  </servlet-mapping>-->
+
+<!--  &lt;!&ndash;-->
+<!--  요청이 수행되기 전, 응답이 나가기 전 수행되는 부분-->
+<!--  스프링이 제공하는 CharacterEncodingFilter를 등록함-->
+<!--  param-value : utf-8로 지정-->
+<!--   &ndash;&gt;-->
+<!--  <filter>-->
+<!--    <filter-name>encodingFilter</filter-name>-->
+<!--    <filter-class>org.springframework.web.filter.CharacterEncodingFilter-->
+<!--    </filter-class>-->
+<!--    <init-param>-->
+<!--      <param-name>encoding</param-name>-->
+<!--      <param-value>UTF-8</param-value>-->
+<!--    </init-param>-->
+<!--  </filter>-->
+<!--  <filter-mapping>-->
+<!--    <filter-name>encodingFilter</filter-name>-->
+<!--    <url-pattern>/*</url-pattern>-->
+<!--  </filter-mapping>-->
+</web-app>
