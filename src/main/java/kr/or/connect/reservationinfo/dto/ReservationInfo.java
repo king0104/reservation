@@ -21,11 +21,12 @@ public class ReservationInfo {
 
     // 안들어가는 부분은, null 처리된다(int는 자동으로 0이 들어간다 - 일관성 유지 위해 cancelFlag를 Long으로 바꿈)
     @Builder
-    public ReservationInfo(Long productId, Long displayInfoId, Long userId, Date reservationDate) {
+    public ReservationInfo(Long productId, Long displayInfoId, Long userId, Date reservationDate, int cancelFlag) {
         this.productId = productId;
         this.displayInfoId = displayInfoId;
         this.userId = userId;
         this.reservationDate = reservationDate;
+        this.cancelFlag = cancelFlag;
     }
 
     @Builder

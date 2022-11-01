@@ -25,7 +25,7 @@ class ReservationInfoDaoTest {
     ReservationInfoDao reservationInfoDao;
 
     @Test
-    void insert() {
+    void select() {
 //        ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 //        ReservationInfoDao reservationInfoDao = ac.getBean(ReservationInfoDao.class);
 
@@ -39,6 +39,21 @@ class ReservationInfoDaoTest {
         ReservationInfo reservationInfo1 = reservationInfoDao.selectReservationInfo(1);
 
         System.out.println("reservationInfo1 = " + reservationInfo1);
+    }
+
+    @Test
+    void insert() {
+
+        ReservationInfo reservationInfo = ReservationInfo.builder()
+                .productId(1L)
+                .displayInfoId(1L)
+                .userId(1L)
+                .cancelFlag(1)
+                .reservationDate(new Date())
+                .build();
+
+        int i = reservationInfoDao.insertReservationInfo(reservationInfo);
+        System.out.println(i);
     }
 
 }
